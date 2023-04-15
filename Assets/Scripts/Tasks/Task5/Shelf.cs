@@ -46,6 +46,7 @@ public class Shelf : MonoBehaviour
         }
         
         Instantiate(_items[ItemsCount++], _itemsRoot);
+        ItemSpawned?.Invoke();
     }
     
     public void Fall()

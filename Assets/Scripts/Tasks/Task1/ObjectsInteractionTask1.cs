@@ -9,12 +9,7 @@ public class ObjectsInteractionTask1 : MonoBehaviour
 
     [SerializeField] 
     private Refrigerator _reftgerator;
-
-    private void Awake()
-    {
-        _reftgerator = FindObjectOfType<Refrigerator>();
-    }
-
+    
     private void Update()
     {
         if (Input.GetKey(KeyCode.Keypad1))
