@@ -14,7 +14,6 @@ public class ObjectsInteractionTask5 : MonoBehaviour
 
     private void Start()
     {
-        _shelfs.Initialize();
         foreach (var shelf in _shelfs)
         {
             shelf.ItemSpawned += СheckForStrength;
@@ -30,6 +29,14 @@ public class ObjectsInteractionTask5 : MonoBehaviour
             {
                 shelf.Fall();
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var shelf in _shelfs)
+        {
+            shelf.ItemSpawned -= СheckForStrength;
         }
     }
 }
