@@ -7,8 +7,7 @@ public class Toaster : MonoBehaviour
 
     public float Timer { get; private set; } = 10; // Таймер готовности вафли
     private bool _isTimerUp;
-    public delegate void TimerIsUp();
-    public event TimerIsUp timerIsUp;
+    public event Action TimerIsUp;
 
     private void Update()
     {
@@ -28,11 +27,7 @@ public class Toaster : MonoBehaviour
         {
             // Таймер вышел
             _isTimerUp = true;
-        }
-
-        if (_isTimerUp)
-        {
-            timerIsUp?.Invoke();
+            TimerIsUp?.Invoke();
         }
     }
 }

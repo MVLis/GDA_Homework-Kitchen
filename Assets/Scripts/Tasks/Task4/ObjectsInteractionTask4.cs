@@ -12,11 +12,16 @@ public class ObjectsInteractionTask4 : MonoBehaviour
     [SerializeField] private Transform _waffleRoot;
     private void Start()
     {
-        _toaster.timerIsUp += MakeWaffle;
+        _toaster.TimerIsUp += MakeWaffle;
     }
 
     private void MakeWaffle()
     {
         Instantiate(_waffle, _waffleRoot);
+    }
+
+    private void OnDestroy()
+    {
+        _toaster.TimerIsUp -= MakeWaffle;
     }
 }

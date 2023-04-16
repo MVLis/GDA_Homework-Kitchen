@@ -18,7 +18,7 @@ public class ObjectsInteractionTask3 : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad2))
+        if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             foreach (var Lamp in _lamps)
             {

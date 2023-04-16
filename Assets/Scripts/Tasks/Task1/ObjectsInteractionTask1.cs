@@ -12,7 +12,7 @@ public class ObjectsInteractionTask1 : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             _reftgerator.Interact();
         }
