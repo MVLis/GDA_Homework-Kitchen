@@ -8,35 +8,26 @@ public class ObjectsInteractionTask5 : MonoBehaviour
     // TODO: Логика должна работать для обоих полок сцены
 
     
-    [SerializeField] private Shelf[] _shelfs;
+    [SerializeField] private Shelf _shelf;
 
-    private int _counter = 0;
+    [SerializeField] private int _countOfSpawnedItems = 3;
 
     private void Start()
     {
-        foreach (var shelf in _shelfs)
-        {
-            shelf.ItemSpawned += СheckForStrength;
-        }
+       _shelf.ItemSpawned += OnItemSpawned;
     }
 
-    private void СheckForStrength()
+    private void OnItemSpawned()
     {
-        _counter++;
-        foreach (var shelf in _shelfs)
+        _countOfSpawnedItems--;
+        if (_countOfSpawnedItems==0)
         {
-            if (_counter==3)
-            {
-                shelf.Fall();
-            }
+            _shelf.Fall();
         }
     }
-
+    
     private void OnDestroy()
     {
-        foreach (var shelf in _shelfs)
-        {
-            shelf.ItemSpawned -= СheckForStrength;
-        }
+        _shelf.ItemSpawned -= OnItemSpawned;
     }
 }
