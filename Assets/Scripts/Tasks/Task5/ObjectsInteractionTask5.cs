@@ -17,11 +17,11 @@ public class ObjectsInteractionTask5 : MonoBehaviour
         _shelfs.Initialize();
         foreach (var shelf in _shelfs)
         {
-            shelf.ItemSpawned += MakeFall;
+            shelf.ItemSpawned += СheckForStrength;
         }
     }
 
-    private void MakeFall()
+    private void СheckForStrength()
     {
         _counter++;
         foreach (var shelf in _shelfs)
@@ -31,12 +31,5 @@ public class ObjectsInteractionTask5 : MonoBehaviour
                 shelf.Fall();
             }
         }
-        
-        
-        
-        
-        
     }
-    
-    
 }
